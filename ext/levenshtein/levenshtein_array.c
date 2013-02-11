@@ -26,7 +26,7 @@ VALUE levenshtein_distance_array(VALUE self, VALUE rb_o1, VALUE rb_o2, VALUE rb_
   /* Do the expensive calculation on a subset of the sequences, if possible, by removing the common prefix. */
 
   offset	= 0;
-  while RTEST(rb_funcall(rb_ary_entry(rb_o1, offset), id_eql, 1, rb_ary_entry(rb_o2, offset))) {
+  while (RTEST(rb_funcall(rb_ary_entry(rb_o1, offset), id_eql, 1, rb_ary_entry(rb_o2, offset)))) {
     offset++;
   }
 
